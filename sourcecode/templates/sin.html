@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UFT-8">
+		<title>SIGN IN</title>
+		
+		<link rel="stylesheet" type="text/css" href="static/css/sin.css"/>
+		
+	</head>
+	
+	<body>
+		<div id="login_frame">
+			
+			<p id="image_logo"><img src="static/images/logo.png"></p>
+			
+			<form method="post" action="sin.js">
+				<p><label class="label_input">Username</label>
+					<input type="text" id="username" class="text_field"/>
+				</p>
+				<p><label class="label_input">Possword</label>
+						<input type="text" id="password" class="text_field"/>
+				</p>
+				
+				<div id="login_control">
+					<input type="button" id="btn_login" value="SIGNIN" onclick="login();"/>
+					<a id="forget_pwd" href="forget_pwd.html">FOTGET PASSWORD?</a>
+				</div>
+			</form>
+		</div>
+		<script type="text/javascript" src="static/js/sin.js"></script>
+	</body>
+	
+</html>

@@ -1,0 +1,155 @@
+% #######################################
+% ########### FILL THESE IN #############
+% #######################################
+\def\mytitle{Coursework Report}
+\def\mykeywords{web, Python, CSS, JavaScript, Music, HTML}
+\def\myauthor{HONG HONG}
+\def\contact{40333300@napier.ac.uk}
+\def\mymodule{Advance Web Technology (SET09103)}
+% #######################################
+% #### YOU DON'T NEED TO TOUCH BELOW ####
+% #######################################
+\documentclass[10pt, a4paper]{article}
+\usepackage[a4paper,outer=1.5cm,inner=1.5cm,top=1.75cm,bottom=1.5cm]{geometry}
+\twocolumn
+\usepackage{graphicx}
+\graphicspath{{./images/}}
+%colour our links, remove weird boxes
+\usepackage[colorlinks,linkcolor={black},citecolor={blue!80!black},urlcolor={blue!80!black}]{hyperref}
+%Stop indentation on new paragraphs
+\usepackage[parfill]{parskip}
+%% Arial-like font
+\usepackage{lmodern}
+\renewcommand*\familydefault{\sfdefault}
+%Napier logo top right
+\usepackage{watermark}
+%Lorem Ipusm dolor please don't leave any in you final report ;)
+\usepackage{lipsum}
+\usepackage{xcolor}
+\usepackage{listings}
+%give us the Capital H that we all know and love
+\usepackage{float}
+%tone down the line spacing after section titles
+\usepackage{titlesec}
+%Cool maths printing
+\usepackage{amsmath}
+%PseudoCode
+\usepackage{algorithm2e}
+
+\titlespacing{\subsection}{0pt}{\parskip}{-3pt}
+\titlespacing{\subsubsection}{0pt}{\parskip}{-\parskip}
+\titlespacing{\paragraph}{0pt}{\parskip}{\parskip}
+\newcommand{\figuremacro}[5]{
+    \begin{figure}[#1]
+        \centering
+        \includegraphics[width=#5\columnwidth]{#2}
+        \caption[#3]{\textbf{#3}#4}
+        \label{fig:#2}
+    \end{figure}
+}
+
+\lstset{
+	escapeinside={/*@}{@*/}, language=C++,
+	basicstyle=\fontsize{8.5}{12}\selectfont,
+	numbers=left,numbersep=2pt,xleftmargin=2pt,frame=tb,
+    columns=fullflexible,showstringspaces=false,tabsize=4,
+    keepspaces=true,showtabs=false,showspaces=false,
+    backgroundcolor=\color{white}, morekeywords={inline,public,
+    class,private,protected,struct},captionpos=t,lineskip=-0.4em,
+	aboveskip=10pt, extendedchars=true, breaklines=true,
+	prebreak = \raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+	keywordstyle=\color[rgb]{0,0,1},
+	commentstyle=\color[rgb]{0.133,0.545,0.133},
+	stringstyle=\color[rgb]{0.627,0.126,0.941}
+}
+
+\thiswatermark{\centering \put(336.5,-38.0){\includegraphics[scale=0.8]{logo}} }
+\title{\mytitle}
+\author{\myauthor\hspace{1em}\\\contact\\Edinburgh Napier University\hspace{0.5em}-\hspace{0.5em}\mymodule}
+\date{}
+\hypersetup{pdfauthor=\myauthor,pdftitle=\mytitle,pdfkeywords=\mykeywords}
+\sloppy
+% #######################################
+% ########### START FROM HERE ###########
+% #######################################
+\begin{document}
+	\maketitle
+	\begin{abstract}
+	   In order to test to test the proficiency in the use of python, html, css and javascript. A music website was planned to be established. This report will introduce frame of this website at first. Then it will describe the codes of each interface which compose this website. Finally, this report will sum up problems the web-app has and the solutions.
+	\end{abstract}
+    
+	\textbf{Keywords -- }{\mykeywords}
+
+	\section{Introduction}
+    \paragraph{Referencing}
+     A complete music website should have several features:1.It must be able to collect recent hottest songs and have a big enough database of different types of music materials. 2.It should have a database to save users' information. Some prime examples of this is the user's search and download history, the music website can recommend based on these history. 3.It should has a simple and beautiful appearance. And each part need a striking title to help people find what they want. \\ 
+	 At present, the music website has implemented part those features. It has clear classifications and beautiful appearance. A complete music list page and music video page have been built. It also has a login interface. The rest part can not be implemented because it does not use the database technology. \\ Here, we describe the processes of establishing this website and the main codes.
+    
+    
+	
+	\section{Frame}
+	First of all, a frame of this web-app had been built. It contains a navigation bar, new songs, recommendation, leader boards, hot lists and premier mv. The navigation bar has contained most features a music website need. It has a logo at the head and it link to the home page. There are seven class had been put in the navigation bar,Music Hall, My Music, Download Apps, VIP, search box, Login and payment interface. 
+	
+   \figuremacro{h}{1.JPG}{Navbar}{ - Part of the Code of navbar}{1.0}
+	 
+	\subsection{Search and Login}
+    Among them, only the search box and login interface have some functions. The search box will show some search history when the cursor click on, the history includes the name of the song and the times it is searched. \\  The Login interface will link to the login page. The login page has a logo and two <div class> to build frame. First <div class> is for two sets of label and input text, for users to enter their username and password. The second <div class> is involved a "login" button and a href. After the establishment of frame, this page also has a css file and a js file to decorate and control. In the js file, the correct value of username and password had been set. After users enter the username and password into, it will be compared with the correct value. If they are the same, the website will show 'welcome' and link to the home page. If they are different, the website will request users to enter correct username and password.
+    
+    \figuremacro{h}{2.JPG}{Login}{ - Part of the Code of login }{1.0}
+    
+    
+    
+	\subsection{The error page}
+    Each website need a 404 error page to face the wrong route. This page had been designed like a no signal television. A strong '404' will move around the centre of the page when the cursor moved. It also has a 'HOME' button in the upper left corner, users can come back to the home page by clicking this button.
+    \begin{lstlisting}[caption = Hello World! in ]
+for (let pixel = 0; pixel < TOTAL; pixel++) {
+  const X = pixel % WIDTH;
+  const Y = Math.floor(pixel / WIDTH);
+  const generateColor = () => {
+    let base = Math.floor(Math.random() * 255).toString(16);
+    return `#${base}${base}${base}`;
+  };
+  const color = generateColor();
+  // CONTEXT.fillStyle = `#${Math.floor(Math.random() * 16777215).toString(16)}`
+  CONTEXT.fillStyle = color;
+  CONTEXT.fillRect(X, Y, 1, 1);
+}
+
+BODY.style.background = `url(${CANVAS.toDataURL()})`;
+
+const update = () => {
+  const X = Math.floor(Math.random() * WIDTH);
+  const Y = Math.floor(Math.random() * HEIGHT);
+  BODY.style.backgroundPosition = `${X}px ${Y}px`;
+  RAF(update);
+};
+RAF(update);
+
+const root = document.documentElement;
+
+const move = e => {
+  if (e.acceleration && e.acceleration.x !== null) {
+    root.style.setProperty("--translateX", e.acceleration.x);
+    root.style.setProperty("--translateY", e.acceleration.y);
+  } else {
+    root.style.setProperty("--translateX", e.pageX / innerWidth - 0.5);
+    root.style.setProperty("--translateY", e.pageY / innerHeight - 0.5);
+  }
+};
+
+\end{lstlisting}
+	
+	\subsection{List and video player page}
+	There are 'List' and 'MV' components on the home page. And they are linked to a list page and video player page respectively. The list page has four classes for different functions. It used css to designed and be able to show the title, artist, album and picture of the song. And some necessary icons had been used. Those icons can control to pause and continue, adjust the process and volume by corresponding javascript file. There are several songs in the list, users can select which thy like. Similarly, the video player page has a video play box, and some icons work for it. The video is set to play at start time, and it can also choose to pause or continue, and adjust the process and volume.
+    
+    \figuremacro{h}{3.JPG}{Login}{ - Part of the Code of list }{1.0}
+
+
+	
+\section{Conclusion}
+   In conclusion, this website has implemented some necessary functions. It has a simple and beautiful home page. And each part need a striking title to help people find what they want. The login page has implemented the basic functions, it can judge the username and password users entered are correct or incorrect and show corresponding text. The error page can let people know that they have entered wrong route directly. And it has a 'HOME' button to help people return to the home page. The music list and video player page has achieved the most important functions. They are able to control to play or pause. It can also adjust the progress and volume of music or video. \\ But there are still many areas that need improvement. For example, it should use database to store and classify a large number of musics. And another database for users to save their username and password. so that each user can have own sub-database to store their personal information, all music or video they played and downloaded will be saved in the sub-database. The recommendation should change based on these information.
+   
+\bibliographystyle{ieeet}
+
+		
+\end{document}
